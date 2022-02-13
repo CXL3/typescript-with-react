@@ -18,7 +18,7 @@ const App = () => {
 
         <ul>
           {pizzas.map((pizza) => {
-            return <Pizza key={pizza.id} Pizza={pizza} />
+            return <Pizza key={pizza.id} pizza={pizza} />
           })}
         </ul>
       </div>
