@@ -19,6 +19,8 @@ const defaultStateValue: AppStateValue = {
 // 4. It requires an initial value, so I pass the state object to the context
 export const AppStateContext = createContext(defaultStateValue);
 
+//Part 2: 6.create context to share the setState
+//8. to describe the value of the context, we can use a generic type parameter
 export const AppSetStateContext = createContext<
   React.Dispatch<React.SetStateAction<AppStateValue>> | undefined
 >(undefined);
@@ -41,6 +43,7 @@ const AppStateProvider: React.FC = ({ children }) => {
   const [state, setState] = useState(defaultStateValue);
   return (
     <AppStateContext.Provider value={state}>
+      {/* //pass the set State */}
       <AppSetStateContext.Provider value={setState}>
         {children}
       </AppSetStateContext.Provider>
